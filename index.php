@@ -4,11 +4,9 @@ function sendFile($version,$hostdir){
 // $file_name="cookie.jpg"; 
 $file_name=$_GET["version"]; 
 //用以解决中文不能显示出来的问题 
-$file_name=iconv("utf-8","gb2312",$version.".txt"); 
-$file_sub_path=$hostdir."\down"; 
-$file_sub_path=$file_sub_path."\";
-$file_path=$file_sub_path.$version.".txt"; 
-echo $file_path;
+$file_name=iconv("utf-8","gb2312",$version.".zip"); 
+$file_sub_path=$hostdir."\down\\"; 
+$file_path=$file_sub_path.$version.".zip"; 
 //首先要判断给定的文件存在与否 
 if(!file_exists($file_path)){ 
 echo "没有该文件文件"; 
@@ -29,7 +27,7 @@ $file_con=fread($fp,$buffer);
 $file_count+=$buffer; 
 echo $file_con; 
 } 
-fclose($fp); 
+//fclose($fp); 
 	}
 $hostdir=dirname(__FILE__);
 
