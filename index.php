@@ -15,9 +15,10 @@ return ;
 $fp=fopen($file_path,"r"); 
 $file_size=filesize($file_path); 
 //下载文件需要用到的头 
-Header("Content-type: application/octet-stream"); 
+Header("Content-type: application/zip"); 
 Header("Accept-Ranges: bytes"); 
 Header("Accept-Length:".$file_size); 
+Header("Keep-Alive：timeout=5, max=100");
 Header("Content-Disposition: attachment; filename=".$file_name); 
 $buffer=1024; 
 $file_count=0; 
